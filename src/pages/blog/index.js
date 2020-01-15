@@ -1,21 +1,38 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from 'react'
 
-import Layout from "../../components/layout"
-import Image from "../../components/image"
-import SEO from "../../components/seo"
+import Layout from '../../components/Layout'
+import BlogRoll from '../../components/BlogRoll'
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
-)
-
-export default IndexPage
+export default class BlogIndexPage extends React.Component {
+  render() {
+    return (
+      <Layout>
+        <div
+          className="full-width-image-container margin-top-0"
+          style={{
+            backgroundImage: `url('/img/blog-index.jpg')`,
+          }}
+        >
+          <h1
+            className="has-text-weight-bold is-size-1"
+            style={{
+              boxShadow: '0.5rem 0 0 #f40, -0.5rem 0 0 #f40',
+              backgroundColor: '#f40',
+              color: 'white',
+              padding: '1rem',
+            }}
+          >
+            Latest Stories
+          </h1>
+        </div>
+        <section className="section">
+          <div className="container">
+            <div className="content">
+              <BlogRoll />
+            </div>
+          </div>
+        </section>
+      </Layout>
+    )
+  }
+}
