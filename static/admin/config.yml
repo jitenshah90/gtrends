@@ -1,7 +1,12 @@
 backend:
   name: git-gateway
   branch: master # Branch to update (optional; defaults to master)
-
+  commit_messages:
+    create: 'Create {{collection}} “{{slug}}”'
+    update: 'Update {{collection}} “{{slug}}”'
+    delete: 'Delete {{collection}} “{{slug}}”'
+    uploadMedia: '[skip ci] Upload “{{path}}”'
+    deleteMedia: '[skip ci] Delete “{{path}}”'
   # This line should *not* be indented
 #publish_mode: editorial_workflow
 
@@ -12,7 +17,7 @@ collections:
   - name: "item" # Used in routes, e.g., /admin/collections/blog
     label: "Article" # Used in the UI
     folder: "_posts/item" # The path to the folder where the documents are stored
-    # create: true # Allow users to create new documents in this collection
+    create: true # Allow users to create new documents in this collection
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter
       - {label: "Layout", name: "layout", widget: "hidden", default: "blog"}
